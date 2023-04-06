@@ -1,0 +1,16 @@
+import { Link } from 'react-router-dom'
+import { ReactComponent as HeaderLogo } from 'assets/logo.svg'
+
+import s from './Logo.module.scss'
+
+const Logo = () => {
+  return (
+    <div className={s.logo}>
+      <Link to="/">
+        <HeaderLogo />
+      </Link>
+    </div>
+  )
+}
+
+export default Logo

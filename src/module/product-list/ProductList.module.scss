@@ -1,0 +1,11 @@
+@import 'src/style/variables';
+@import 'src/style/mixins';
+.product-list {
+  padding-top: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.5%;
+  flex-basis: 81%;
+}

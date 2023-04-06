@@ -1,0 +1,15 @@
+@import 'src/style/variables';
+@import 'src/style/mixins';
+
+.button {
+  width: 100%;
+  padding: 8px 12px;
+  text-align: center;
+  color: $color-secondary;
+  font-size: $font-button;
+  background-color: $btn-primary;
+  border-radius: $border-radius;
+  &:hover {
+    background-color: $btn-primary-hover;
+  }
+}
