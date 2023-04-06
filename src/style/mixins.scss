@@ -16,6 +16,11 @@
   gap: $gap;
 }
 
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin absolute($width, $height, $bottom, $left) {
   position: absolute;
   content: '';

@@ -21,7 +21,7 @@
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "constants/*": ["constants/*"],
-      "module/*": ["module/*"],
+      "modules/*": ["modules/*"],
       "pages/*": ["pages/*"],
       "types/*": ["types/*"],
       "UI/*": ["UI/*"]

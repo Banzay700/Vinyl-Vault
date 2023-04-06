@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
-import { ProductList, Product } from 'module'
+import { ProductList, Product } from 'modules'
+import { Pagination } from 'components'
+import { Banner } from 'UI'
 import { ShopSidebar } from './collection-sidedar'
+
 import s from './Collection.module.scss'
 
 const Collection = () => {
@@ -14,12 +17,18 @@ const Collection = () => {
 
   return (
     <div className={s.collection}>
-      <ShopSidebar />
-      <ProductList>
-        {products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
-      </ProductList>
+      <Banner />
+      <div className={s.contentWrapper}>
+        <ShopSidebar />
+        <div className={s.content}>
+          <ProductList>
+            {products.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
+          </ProductList>
+          <Pagination />
+        </div>
+      </div>
     </div>
   )
 }

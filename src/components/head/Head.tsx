@@ -1,5 +1,5 @@
 import { Logo } from 'UI'
-import { UserActions } from 'module'
+import { UserActions } from 'modules'
 
 import s from './Head.module.scss'
 

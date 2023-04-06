@@ -20,7 +20,7 @@ const Modal: FC<ModalProps> = ({ children, close, type }) => {
 
   return (
     <>
-      <div className={s.overlay} />
+      <div className={s.overlay} onClick={close} />
       <div className={s.modal}>
         <CloseOutlined className={s.closeIcon} onClick={close} />
         <div className={s.modalTitle}>{modalTitle}</div>

@@ -2,13 +2,17 @@
 @import 'variables.scss';
 @import 'mixins.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
   height: 100%;
+  font-family: 'Inter', sans-serif;
   overflow: hidden;
 }
 

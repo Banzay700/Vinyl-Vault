@@ -1,5 +1,17 @@
+@import 'src/style/variables';
+@import 'src/style/mixins';
+
 .collection {
-  height: 100%;
-  width: 100%;
+  flex-grow: 1;
+  min-height: 100%;
+  @include flexColumn;
+}
+
+.content-wrapper {
+  flex-grow: 1;
   display: flex;
+}
+
+.content {
+  @include flexColumn;
 }

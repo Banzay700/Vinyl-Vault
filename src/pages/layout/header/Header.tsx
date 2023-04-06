@@ -1,8 +1,10 @@
 import { Head, Nav } from 'components'
 
+import s from './Header.module.scss'
+
 const Header = () => {
   return (
-    <div>
+    <div className={s.header}>
       <Head />
       <Nav />
     </div>
