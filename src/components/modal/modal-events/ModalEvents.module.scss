@@ -2,7 +2,7 @@
 @import 'src/style/mixins';
 
 .actions {
-  width: 96%;
+  width: 100%;
   padding: 10px 12px;
   border-top: $border-width $border-color-dark solid;
   display: flex;
@@ -16,6 +16,7 @@
 }
 
 .button-wrapper {
-  margin-right: 50px;
+  height: 35px;
   width: 100%;
+  margin-right: 50px;
 }

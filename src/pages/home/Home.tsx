@@ -1,5 +1,8 @@
+import { motion } from 'framer-motion'
+import { pageAnimation } from '../../tools/motionOptions'
+
 const Home = () => {
-  return <div>Home content</div>
+  return <motion.div {...pageAnimation}>Home content</motion.div>
 }
 
 export default Home

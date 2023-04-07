@@ -9,7 +9,7 @@
   border: $border-width $border-color-dark solid;
   border-right: none;
   @include flexProperty(flex-start, space-between, column, null);
-  @include absolute(32%, 100vh, null, null);
+  @include absolute(29%, 100vh, null, null);
 }
 
 .modal-title {

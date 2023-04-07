@@ -1,5 +1,4 @@
 {
-
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -23,13 +22,12 @@
       "constants/*": ["constants/*"],
       "modules/*": ["modules/*"],
       "pages/*": ["pages/*"],
+      "store/*": ["store/*"],
+      "tools/*": ["tools/*"],
       "types/*": ["types/*"],
       "UI/*": ["UI/*"]
     }
   },
-  "include": [
-    "src",
-    ".eslintrc.cjs"
-  ],
+  "include": ["src", ".eslintrc.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

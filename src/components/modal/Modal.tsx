@@ -2,9 +2,11 @@ import React, { FC } from 'react'
 import { CloseOutlined } from '@ant-design/icons'
 
 import { MODAL_DEFAULT_TYPE } from 'constants'
+import { motion } from 'framer-motion'
 import { Button } from 'UI'
 import { ModalEvents } from './modal-events'
 import s from './Modal.module.scss'
+import { modalAnimation } from '../../tools/motionOptions'
 
 interface ModalProps {
   close: () => void
@@ -19,17 +21,17 @@ const Modal: FC<ModalProps> = ({ children, close, type }) => {
   const buttonText = isDefault ? 'Checkout' : 'Add to cart'
 
   return (
-    <>
+    <div>
       <div className={s.overlay} onClick={close} />
-      <div className={s.modal}>
+      <motion.div className={s.modal} {...modalAnimation}>
         <CloseOutlined className={s.closeIcon} onClick={close} />
         <div className={s.modalTitle}>{modalTitle}</div>
         <div className={s.content}>{children}</div>
         <ModalEvents>
           <Button>{buttonText}</Button>
         </ModalEvents>
-      </div>
-    </>
+      </motion.div>
+    </div>
   )
 }
 

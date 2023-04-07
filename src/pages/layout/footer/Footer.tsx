@@ -1,7 +1,7 @@
 import s from './Footer.module.scss'
 
 const Footer = () => {
-  return <div className={s.footer}>Vinyl Vault 2023</div>
+  return <div className={s.footer}>© 2023 Vinyl Vault </div>
 }
 
 export default Footer

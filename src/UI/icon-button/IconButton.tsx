@@ -1,17 +1,22 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { Badge } from 'antd'
 import { motion } from 'framer-motion'
+import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 
 import s from './IconButton.module.scss'
 
 interface IconButtonProps {
-  children: React.ReactNode
   onClick: () => void
   labelValue?: number
+  defaultStyle: boolean
 }
 
-const IconButton: FC<IconButtonProps> = ({ children, onClick, labelValue = 0 }) => {
-  const [count, setCount] = useState(0)
+const IconButton: FC<IconButtonProps> = ({ onClick, labelValue, defaultStyle }) => {
+  const iconStyle = defaultStyle ? (
+    <HeartOutlined style={{ fontSize: '28px' }} title="Favourits" />
+  ) : (
+    <ShoppingCartOutlined style={{ fontSize: '28px' }} title="Cart" />
+  )
 
   return (
     <motion.button
@@ -19,9 +24,9 @@ const IconButton: FC<IconButtonProps> = ({ children, onClick, labelValue = 0 }) 
       className={s.iconButton}
       type="submit"
       onClick={onClick}>
-      {children}
+      {iconStyle}
       <div className={s.badgeWrapper}>
-        {!!labelValue && <Badge count={labelValue} color="#18181b" />}
+        {!!labelValue && <Badge count={labelValue} color="#0c151c" />}
       </div>
     </motion.button>
   )

@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+
 import { ProductList, Product } from 'modules'
+import { ProductType } from 'types'
 import { Pagination } from 'components'
 import { Banner } from 'UI'
+import { pageAnimation } from 'tools'
 import { ShopSidebar } from './collection-sidedar'
+import { content, heading } from './collection.utils'
 
 import s from './Collection.module.scss'
 
@@ -10,26 +15,24 @@ const Collection = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetch('../../../public/data/mockData.json')
+    fetch('http://localhost:3001/collection')
       .then((res) => res.json())
       .then((data) => setProducts(data))
   }, [])
 
+  const allProducts = products.map((item: ProductType) => <Product key={item.id} {...item} />)
+
   return (
-    <div className={s.collection}>
-      <Banner />
+    <motion.div className={s.collection} {...pageAnimation}>
+      <Banner heading={heading}>{content}</Banner>
       <div className={s.contentWrapper}>
         <ShopSidebar />
         <div className={s.content}>
-          <ProductList>
-            {products.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
-          </ProductList>
+          <ProductList>{allProducts}</ProductList>
           <Pagination />
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

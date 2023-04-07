@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import s from './Button.module.scss'
 
 interface ButtonProps {
-  children: string
+  children: string | React.ReactNode
 }
 
 const Button: FC<ButtonProps> = ({ children }) => {
