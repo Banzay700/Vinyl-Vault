@@ -7,11 +7,11 @@ import s from './IconButton.module.scss'
 
 interface IconButtonProps {
   onClick: () => void
-  labelValue?: number
+  counter?: number
   defaultStyle: boolean
 }
 
-const IconButton: FC<IconButtonProps> = ({ onClick, labelValue, defaultStyle }) => {
+const IconButton: FC<IconButtonProps> = ({ onClick, counter, defaultStyle }) => {
   const iconStyle = defaultStyle ? (
     <HeartOutlined style={{ fontSize: '28px' }} title="Favourits" />
   ) : (
@@ -25,15 +25,13 @@ const IconButton: FC<IconButtonProps> = ({ onClick, labelValue, defaultStyle }) 
       type="submit"
       onClick={onClick}>
       {iconStyle}
-      <div className={s.badgeWrapper}>
-        {!!labelValue && <Badge count={labelValue} color="#0c151c" />}
-      </div>
+      <div className={s.badgeWrapper}>{!!counter && <Badge count={counter} color="#0c151c" />}</div>
     </motion.button>
   )
 }
 
 IconButton.defaultProps = {
-  labelValue: 0,
+  counter: 0,
 }
 
 export default IconButton

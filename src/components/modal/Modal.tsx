@@ -1,35 +1,26 @@
 import React, { FC } from 'react'
 import { CloseOutlined } from '@ant-design/icons'
-
-import { MODAL_DEFAULT_TYPE } from 'constants'
 import { motion } from 'framer-motion'
-import { Button } from 'UI'
-import { ModalEvents } from './modal-events'
+
+import { modalAnimation } from 'tools'
 import s from './Modal.module.scss'
-import { modalAnimation } from '../../tools/motionOptions'
 
 interface ModalProps {
-  close: () => void
-  type: 'cart' | 'favourite'
+  handleClose: () => void
+  heading: string
+  itemCount: number
   children: React.ReactNode
 }
 
-const Modal: FC<ModalProps> = ({ children, close, type }) => {
-  const isDefault = type === MODAL_DEFAULT_TYPE
-
-  const modalTitle = isDefault ? 'You cart' : 'Favourites'
-  const buttonText = isDefault ? 'Checkout' : 'Add to cart'
-
+const Modal: FC<ModalProps> = ({ children, handleClose, heading, itemCount }) => {
   return (
     <div>
-      <div className={s.overlay} onClick={close} />
+      <div className={s.overlay} onClick={handleClose} />
       <motion.div className={s.modal} {...modalAnimation}>
-        <CloseOutlined className={s.closeIcon} onClick={close} />
-        <div className={s.modalTitle}>{modalTitle}</div>
+        <CloseOutlined className={s.closeIcon} onClick={handleClose} />
+        <div className={s.modalTitle}>{heading}</div>
+        <div className={s.modalItemCounter}>{itemCount} items</div>
         <div className={s.content}>{children}</div>
-        <ModalEvents>
-          <Button>{buttonText}</Button>
-        </ModalEvents>
       </motion.div>
     </div>
   )

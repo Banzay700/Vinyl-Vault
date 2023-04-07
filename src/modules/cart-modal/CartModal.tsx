@@ -2,26 +2,26 @@ import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 
 import { Modal } from 'components'
-import { Button } from 'UI/button'
+import { Button } from 'UI'
 
-import s from './FavouritesModal.module.sass'
+import s from './CartModal.module.sass'
 
 interface FavouritesModalType {
   handleClose: () => void
 }
 
-const FavouritesModal: FC<FavouritesModalType> = ({ handleClose }) => {
-  const isOpened = useSelector((state) => state.modalsStatus.favouritesStatus)
+const CartModal: FC<FavouritesModalType> = ({ handleClose }) => {
+  const isOpened = useSelector((state) => state.modalsStatus.cartStatus)
 
   return (
     <>
       {isOpened && (
-        <Modal handleClose={handleClose} heading="Favourites" itemCount={10}>
+        <Modal handleClose={handleClose} heading="You Cart" itemCount={10}>
           <div className={s.actions}>
             <div>Subtotal:</div>
             <div className={s.actionsInfo}>Shipping and taxes calculated at checkout</div>
             <div className={s.buttonWrapper}>
-              <Button>Add to Cart</Button>
+              <Button>Checkout</Button>
             </div>
           </div>
         </Modal>
@@ -30,4 +30,4 @@ const FavouritesModal: FC<FavouritesModalType> = ({ handleClose }) => {
   )
 }
 
-export default FavouritesModal
+export default CartModal

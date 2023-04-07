@@ -1,44 +1,25 @@
-import { useState } from 'react'
-import { IconButton, Modal } from 'UI'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { toggleFavouritesStatus, toggleCartStatus } from 'store/modalsStatusSlice'
+import { IconButton } from 'UI'
+import { FavouritesModal, CartModal } from 'modules'
+
 import s from './UserActions.module.scss'
 
-type ModalType = 'cart' | 'favourites'
-
 const UserActions = () => {
-  const [modalStatus, setModalStatus] = useState({ cart: false, favourites: false })
-  const favouritesProducts = useSelector((state) => state.favourites.favourites)
+  const dispatch = useDispatch()
+  const favouritesQuantity = useSelector((state) => state.favourites.favourites).length
 
-  const closeModal = (type: ModalType) => {
-    setModalStatus((prev) => ({ ...prev, [type]: false }))
-  }
-
-  localStorage.setItem('favorites', JSON.stringify(favouritesProducts))
-
-  const openModal = (type: ModalType) => {
-    setModalStatus((prev) => ({ ...prev, [type]: true }))
-  }
+  const toggleFavModalStatus = () => dispatch(toggleFavouritesStatus())
+  const toggleCartModalStatus = () => dispatch(toggleCartStatus())
 
   return (
     <div className={s.userActions}>
-      <IconButton
-        defaultStyle
-        onClick={() => openModal('favourites')}
-        labelValue={favouritesProducts.length}
-      />
+      <IconButton defaultStyle onClick={toggleFavModalStatus} counter={favouritesQuantity} />
+      <IconButton defaultStyle={false} onClick={toggleCartModalStatus} counter={0} />
 
-      <IconButton defaultStyle={false} onClick={() => openModal('cart')} labelValue={0} />
-
-      {modalStatus.cart && (
-        <Modal type="cart" close={() => closeModal('cart')}>
-          CONTENT
-        </Modal>
-      )}
-      {modalStatus.favourites && (
-        <Modal type="favourite" close={() => closeModal('favourites')}>
-          ANOTHER CONTENT
-        </Modal>
-      )}
+      <FavouritesModal handleClose={toggleFavModalStatus} />
+      <CartModal handleClose={toggleCartModalStatus} />
     </div>
   )
 }
