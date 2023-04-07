@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const modalsStatusSlice = createSlice({
   name: 'favouritesModal',
   initialState: {
-    favouritesStatus: true,
-    cartStatus: true,
+    favouritesStatus: false,
+    cartStatus: false,
   },
   reducers: {
     toggleFavouritesStatus(state) {

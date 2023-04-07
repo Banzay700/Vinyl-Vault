@@ -1,13 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ProductType } from 'types'
+
+const favourites = JSON.parse(localStorage.getItem('favorites') || '[]') as ProductType[]
 
 const favouritesSlice = createSlice({
   name: 'favourites',
   initialState: {
-    favourites: JSON.parse(localStorage.getItem('favorites')) || [],
+    favourites,
   },
   reducers: {
-    addToFavourites(state, action) {
+    addToFavourites(state, action: PayloadAction<ProductType>) {
       const index = state.favourites.findIndex((item: ProductType) => item.id === action.payload.id)
 
       if (index === -1) {
@@ -15,6 +17,8 @@ const favouritesSlice = createSlice({
       } else {
         state.favourites.splice(index, 1)
       }
+
+      localStorage.setItem('favorites', JSON.stringify(state.favourites))
     },
   },
 })

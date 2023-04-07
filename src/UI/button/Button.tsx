@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+
+import React, { FC } from 'react'
 
 import s from './Button.module.scss'
 

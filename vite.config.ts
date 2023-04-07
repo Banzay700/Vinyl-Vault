@@ -12,9 +12,9 @@ export default defineConfig({
       modules: '/src/modules/',
       pages: '/src/pages/',
       store: '/src/store/',
-      tools: '/src/tools/',
       types: '/src/types/',
       UI: '/src/UI/',
+      utils: '/src/utils/',
     },
   },
   css: {

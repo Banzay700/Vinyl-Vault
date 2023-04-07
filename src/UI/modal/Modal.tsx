@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { CloseOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
 
-import { modalAnimation } from 'tools'
+import { modalAnimation } from 'utils/index'
 import s from './Modal.module.scss'
 
 interface ModalProps {

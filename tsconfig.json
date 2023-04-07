@@ -23,9 +23,9 @@
       "modules/*": ["modules/*"],
       "pages/*": ["pages/*"],
       "store/*": ["store/*"],
-      "tools/*": ["tools/*"],
       "types/*": ["types/*"],
-      "UI/*": ["UI/*"]
+      "UI/*": ["UI/*"],
+      "utils/*": ["utils/*"]
     }
   },
   "include": ["src", ".eslintrc.cjs"],

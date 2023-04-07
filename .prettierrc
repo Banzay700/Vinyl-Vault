@@ -7,14 +7,5 @@
   "bracketSpacing": true,
   "bracketSameLine": true,
   "arrowParens": "always",
-  "endOfLine": "auto",
-  "importOrderSortSpecifiers": true,
-  "importOrderSeparation": true,
-  "importOrder": [
-    "^react$",
-    "^containers|components/(.+)$",
-    "^constants|types/(.+)$",
-    "^[../]",
-    "^[./]"
-  ]
+  "endOfLine": "auto"
 }

@@ -1,10 +1,9 @@
 import { FC, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
 
-import { addToFavourites } from 'store/favouritesSlice'
-import { productAnimation } from 'tools'
+import { productAnimation, useAppSelector, useAppDispatch } from 'utils'
+import { addToFavourites } from 'store'
 import { ProductType } from 'types'
 import { ReactComponent as KeyIcon } from 'assets/key.svg'
 
@@ -13,8 +12,8 @@ import s from './Product.module.sass'
 const Product: FC<ProductType> = (product) => {
   const { id, image, artist, title, price } = product
 
-  const dispatch = useDispatch()
-  const favourites = useSelector((state) => state.favourites.favourites)
+  const dispatch = useAppDispatch()
+  const favourites = useAppSelector((state) => state.favourites.favourites)
   const isMatch = favourites.some((item: ProductType) => item.id === id)
 
   const [iconStyle, setIconStyle] = useState(s.favIcon)

@@ -1,5 +1,6 @@
 export { Logo } from './logo'
 export { IconButton } from './icon-button'
-export { Modal } from '../components/modal'
 export { Button } from './button'
 export { Banner } from './banner'
+export { Modal } from './modal'
+export { SummaryInfo } from './summary-info'

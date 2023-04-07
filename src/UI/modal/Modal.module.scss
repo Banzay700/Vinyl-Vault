@@ -8,7 +8,7 @@
   background-color: $bg-color-secondary;
   border: $border-width $border-color-dark solid;
   border-right: none;
-  @include flexProperty(flex-start, space-between, column, null);
+  @include flexProperty(null, null, column, null);
   @include absolute(29%, 100vh, null, null);
 }
 
@@ -22,6 +22,7 @@
 .modal-item-counter {
   font-size: $font-body-m;
   font-weight: 300;
+  padding: 4px 12px;
 }
 
 .content {
@@ -52,4 +53,5 @@
   right: 13px;
   font-size: $font-heading-l;
   cursor: pointer;
+  z-index: 10;
 }

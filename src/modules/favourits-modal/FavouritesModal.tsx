@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import { useSelector } from 'react-redux'
 
-import { Modal } from 'components'
-import { Button } from 'UI/button'
+import { ModalProductItem } from 'components'
+import { Button, Modal, SummaryInfo } from 'UI'
+import { useAppSelector } from 'utils'
 
 import s from './FavouritesModal.module.sass'
 
@@ -11,18 +11,20 @@ interface FavouritesModalType {
 }
 
 const FavouritesModal: FC<FavouritesModalType> = ({ handleClose }) => {
-  const isOpened = useSelector((state) => state.modalsStatus.favouritesStatus)
+  const isOpened = useAppSelector((state) => state.modalsStatus.favouritesStatus)
+  const favourites = useAppSelector((state) => state.favourites.favourites)
+
+  const favouritesProducts = favourites.map((item) => <ModalProductItem key={item.id} {...item} />)
 
   return (
     <>
       {isOpened && (
-        <Modal handleClose={handleClose} heading="Favourites" itemCount={10}>
-          <div className={s.actions}>
-            <div>Subtotal:</div>
-            <div className={s.actionsInfo}>Shipping and taxes calculated at checkout</div>
-            <div className={s.buttonWrapper}>
+        <Modal handleClose={handleClose} heading="Favourites" itemCount={favourites.length}>
+          <div className={s.productsListWrapper}>
+            <div className={s.productsList}>{favouritesProducts}</div>
+            <SummaryInfo totalValue={543}>
               <Button>Add to Cart</Button>
-            </div>
+            </SummaryInfo>
           </div>
         </Modal>
       )}

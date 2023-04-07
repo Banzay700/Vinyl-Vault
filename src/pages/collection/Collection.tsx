@@ -5,7 +5,7 @@ import { ProductList, Product } from 'modules'
 import { ProductType } from 'types'
 import { Pagination } from 'components'
 import { Banner } from 'UI'
-import { pageAnimation } from 'tools'
+import { pageAnimation } from 'utils'
 import { ShopSidebar } from './collection-sidedar'
 import { content, heading } from './collection.utils'
 
