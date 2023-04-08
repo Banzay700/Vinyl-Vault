@@ -3,7 +3,7 @@
 
 .banner {
   padding: 8px 35px;
-  font-size: $font-body-xl;
+  font-size: $font-body-l;
   min-height: 84px;
   font-weight: 300;
   background-image: url('src/assets/banner.jpg');
@@ -11,7 +11,7 @@
   background-size: cover;
   background-position: 0 16%;
   color: $color-secondary;
-  @include flexProperty(flex-start, center, column, null);
+  @include flexProperty(flex-start, flex-start, column, null);
 }
 
 .heading {

@@ -4,14 +4,14 @@ import s from './SummaryInfo.module.sass'
 
 interface SummaryInfoProps {
   children: React.ReactNode
-  totalValue: number
+  totalAmount: number
 }
 
-const SummaryInfo: FC<SummaryInfoProps> = ({ totalValue, children }) => {
+const SummaryInfo: FC<SummaryInfoProps> = ({ totalAmount, children }) => {
   return (
     <div className={s.actions}>
-      <div>
-        Subtotal: <span>{totalValue}$</span>
+      <div className={s.total}>
+        Subtotal: <span>{totalAmount}$</span>
       </div>
       <div className={s.actionsInfo}>Shipping and taxes calculated at checkout</div>
       <div className={s.buttonWrapper}>{children}</div>

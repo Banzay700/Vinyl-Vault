@@ -3,13 +3,17 @@
 
 
 .actions
-  margin-top: auto
-  width: 100%
+  position: fixed
+  content: ''
+  right: 1%
+  bottom: 1px
+  width: 28%
   padding: 10px 12px
   gap: 6px
-  display: flex
-  flex-direction: column
   border-top: $border-width $border-color-dark solid
+  border-left: $border-width $border-color-dark solid
+  background-color: $bg-color-secondary
+  @include flexColumn
 
 
 .actionsInfo
@@ -21,3 +25,11 @@
   height: 35px
   width: 100%
   margin-right: 50px
+
+
+.total
+  @include flexProperty(center, space-between, null, null)
+  span
+    font-weight: 500
+    font-size: $font-body-xxl
+    padding-right: 10px

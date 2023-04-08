@@ -2,11 +2,13 @@
 @import 'src/style/mixins';
 
 .modal {
+  position: relative;
   z-index: 20;
   top: 0;
   right: 0;
   background-color: $bg-color-secondary;
   border: $border-width $border-color-dark solid;
+  border-right: none;
   border-right: none;
   @include flexProperty(null, null, column, null);
   @include absolute(29%, 100vh, null, null);
@@ -28,7 +30,7 @@
 .content {
   padding: 8px 12px;
   flex-grow: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .item-counter {

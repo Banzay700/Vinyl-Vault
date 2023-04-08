@@ -7,6 +7,7 @@ const favouritesSlice = createSlice({
   name: 'favourites',
   initialState: {
     favourites,
+    cart: [],
   },
   reducers: {
     addToFavourites(state, action: PayloadAction<ProductType>) {
@@ -24,5 +25,4 @@ const favouritesSlice = createSlice({
 })
 
 export const { addToFavourites } = favouritesSlice.actions
-
 export default favouritesSlice.reducer

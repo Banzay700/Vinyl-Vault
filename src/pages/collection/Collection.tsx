@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { ProductList, Product } from 'modules'
-import { ProductType } from 'types'
 import { Pagination } from 'components'
 import { Banner } from 'UI'
+import { ProductType } from 'types'
 import { pageAnimation } from 'utils'
 import { ShopSidebar } from './collection-sidedar'
 import { content, heading } from './collection.utils'
+
+// '../../../server/db.json' mock-data
 
 import s from './Collection.module.scss'
 

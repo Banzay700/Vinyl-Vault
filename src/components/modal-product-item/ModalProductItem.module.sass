@@ -3,40 +3,44 @@
 
 
 .product-item
-  padding: 10px
-  display: flex
-  gap: 10px
-  font-size: $font-body-l
-  border-bottom: $border-width $border-color solid
+   padding: 10px
+   display: flex
+   gap: 10px
+   font-size: $font-body-xl
+   font-weight: 400
+   border-bottom: $border-width $border-color solid
+   cursor: pointer
+
+   &:hover .image
+      box-shadow: 0 0 24px 9px rgba(150, 150, 150, 0.24)
+      border: $border-width $border-color-dark solid
 
 
 .image
-  height: 100%
-  width: 100%
-  max-height: 110px
-  max-width: 110px
+   height: 100%
+   width: 100%
+   max-height: 110px
+   max-width: 110px
+   transition: all 0.25s
+   border: $border-width $border-color solid
 
-  img
-    max-width: 100%
+   img
+      max-width: 100%
 
 
 .product-info
-  width: 100%
-  display: flex
-  align-items: center
-  justify-content: space-between
+   width: 100%
+   @include flexProperty(center, space-between, null, 20px)
 
 
 .product-text
-  align-self: flex-start
-
-
-.product-title
+   padding-top: 5px
+   gap: 5px
+   align-self: flex-start
+   @include flexColumn
 
 
 .product-description
-  height: 40px
+   font-weight: 300
 
-
-.product-prise
 
