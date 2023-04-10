@@ -1,27 +1,30 @@
-import React, { FC } from 'react'
-
-import { Button, Modal } from 'UI'
-import { useAppSelector } from 'utils'
+import { ModalProductItem } from 'components'
+import { Button, Modal, SummaryInfo } from 'UI'
+import { useCartReducer } from 'utils'
 
 import s from './CartModal.module.sass'
 
-interface FavouritesModalType {
-  handleClose: () => void
-}
+const CartModal = () => {
+  const { isOpened, totalAmount, cartProducts, cartProductsQuantity, changeCartModalStatus } =
+    useCartReducer()
 
-const CartModal: FC<FavouritesModalType> = ({ handleClose }) => {
-  const isOpened = useAppSelector((state) => state.modalsStatus.cartStatus)
+  const checkout = () => {}
+  const cartProductList = cartProducts.map((product) => (
+    <ModalProductItem key={product.id} {...product} />
+  ))
 
   return (
     <>
       {isOpened && (
-        <Modal handleClose={handleClose} heading="Your Cart" itemCount={10}>
-          <div className={s.actions}>
-            <div>Subtotal:</div>
-            <div className={s.actionsInfo}>Shipping and taxes calculated at checkout</div>
-            <div className={s.buttonWrapper}>
-              <Button>Checkout</Button>
-            </div>
+        <Modal
+          handleClose={changeCartModalStatus}
+          heading="Favourites"
+          itemCount={cartProductsQuantity}>
+          <div className={s.productsListWrapper}>
+            <div className={s.productsList}>{cartProductList}</div>
+            <SummaryInfo totalAmount={totalAmount}>
+              <Button onClick={checkout}>Checkout</Button>
+            </SummaryInfo>
           </div>
         </Modal>
       )}

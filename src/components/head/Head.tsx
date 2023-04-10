@@ -1,5 +1,5 @@
 import { Logo } from 'UI'
-import { UserActions } from 'modules'
+import { UserModalTriggers } from 'modules'
 
 import s from './Head.module.scss'
 
@@ -8,7 +8,7 @@ const Head = () => {
     <div className={s.head}>
       <Logo />
       <div>Search will be here</div>
-      <UserActions />
+      <UserModalTriggers />
     </div>
   )
 }

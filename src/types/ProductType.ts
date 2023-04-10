@@ -8,4 +8,7 @@ export type ProductType = {
   description: string
   label: string
   formats: string
+  default: boolean
+  defaultStyle: boolean
+  productData: null
 }

@@ -2,8 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
 
-import { productAnimation, useAppSelector, useAppDispatch } from 'utils'
-import { addToFavourites } from 'store'
+import { productAnimation, useCartReducer, useFavReducer } from 'utils'
 import { ProductType } from 'types'
 import { ReactComponent as KeyIcon } from 'assets/key.svg'
 
@@ -12,11 +11,12 @@ import s from './Product.module.sass'
 const Product: FC<ProductType> = (product) => {
   const { id, image, artist, title, price } = product
 
-  const dispatch = useAppDispatch()
-  const favourites = useAppSelector((state) => state.favourites.favourites)
-  const isMatch = favourites.some((item: ProductType) => item.id === id)
-
   const [iconStyle, setIconStyle] = useState(s.favIcon)
+
+  const { favProducts, updateFavouriteList } = useFavReducer()
+  const { addProductToCart } = useCartReducer()
+
+  const isMatch = favProducts.some((item: ProductType) => item.id === id)
 
   useEffect(() => {
     const style = isMatch ? s.favIconActive : s.favIcon
@@ -24,14 +24,15 @@ const Product: FC<ProductType> = (product) => {
     setIconStyle(style)
   }, [isMatch])
 
-  const addFavourites = () => dispatch(addToFavourites(product))
+  const updateFavourites = () => updateFavouriteList(product)
+  const addProduct = () => addProductToCart(product)
 
   return (
     <motion.div className={s.product} {...productAnimation}>
       <div className={s.image}>
         <img src={image} alt="product" />
         <motion.div whileTap={{ scale: 1.1 }} className={s.iconWrapper} title="Add to Favourites">
-          <KeyIcon className={iconStyle} onClick={addFavourites} />
+          <KeyIcon className={iconStyle} onClick={updateFavourites} />
         </motion.div>
       </div>
       <div className={s.productInfo}>
@@ -41,9 +42,9 @@ const Product: FC<ProductType> = (product) => {
         </div>
         <div className={s.price}>
           <div>${price}</div>
-          <div className={s.buttonWrapper}>
+          <button onClick={addProduct} className={s.buttonWrapper} type="submit">
             <ShoppingCartOutlined />
-          </div>
+          </button>
         </div>
       </div>
     </motion.div>

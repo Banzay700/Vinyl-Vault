@@ -1,33 +1,31 @@
-import React, { FC } from 'react'
-
 import { ModalProductItem } from 'components'
 import { Button, Modal, SummaryInfo } from 'UI'
-import { toggleFavouritesStatus } from 'store'
-import { calcTotalAmount, useAppSelector, useAppDispatch } from 'utils'
+import { useCartReducer, useFavReducer } from 'utils'
 
 import s from './FavouritesModal.module.sass'
 
-interface FavouritesModalType {
-  handleClose: () => void
-}
-
-const FavouritesModal: FC<FavouritesModalType> = ({ handleClose }) => {
-  const dispatch = useAppDispatch()
-  const isOpened = useAppSelector((state) => state.modalsStatus.favouritesStatus)
-  const favourites = useAppSelector((state) => state.favourites.favourites)
-
-  const favouritesProducts = favourites.map((item) => <ModalProductItem key={item.id} {...item} />)
-
-  const totalAmount = calcTotalAmount(favourites)
+const FavouritesModal = () => {
+  const { isOpened, favProducts, totalAmount, changeFavModalStatus, updateFavouriteList } =
+    useFavReducer()
+  const { addProductToCart } = useCartReducer()
 
   const addFavoritesToCart = () => {
-    dispatch(toggleFavouritesStatus())
+    addProductToCart(favProducts)
+    favProducts.forEach((product) => updateFavouriteList(product))
+    setTimeout(changeFavModalStatus, 650)
   }
+
+  const favouritesProducts = favProducts.map((product) => (
+    <ModalProductItem key={product.id} {...product} />
+  ))
 
   return (
     <>
       {isOpened && (
-        <Modal handleClose={handleClose} heading="Favourites" itemCount={favourites.length}>
+        <Modal
+          handleClose={changeFavModalStatus}
+          heading="Favourites"
+          itemCount={favProducts.length}>
           <div className={s.productsListWrapper}>
             <div className={s.productsList}>{favouritesProducts}</div>
             <SummaryInfo totalAmount={totalAmount}>
