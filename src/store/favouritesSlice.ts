@@ -1,28 +1,33 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ProductType } from 'types'
 
-const favourites = JSON.parse(localStorage.getItem('favorites') || '[]') as ProductType[]
+const favoritesList = JSON.parse(localStorage.getItem('favorites') || '[]') as ProductType[]
 
 const favouritesSlice = createSlice({
   name: 'favourites',
   initialState: {
-    favourites,
-    cart: [],
+    favoritesList,
+    favoriteModalStatus: false,
   },
   reducers: {
-    addToFavourites(state, action: PayloadAction<ProductType>) {
-      const index = state.favourites.findIndex((item: ProductType) => item.id === action.payload.id)
+    updateFavoritesList(state, action: PayloadAction<ProductType>) {
+      const index = state.favoritesList.findIndex(
+        (item: ProductType) => item.id === action.payload.id,
+      )
 
       if (index === -1) {
-        state.favourites.push(action.payload)
+        state.favoritesList.push(action.payload)
       } else {
-        state.favourites.splice(index, 1)
+        state.favoritesList.splice(index, 1)
       }
 
-      localStorage.setItem('favorites', JSON.stringify(state.favourites))
+      localStorage.setItem('favorites', JSON.stringify(state.favoritesList))
+    },
+    toggleFavModalStatus(state) {
+      state.favoriteModalStatus = !state.favoriteModalStatus
     },
   },
 })
 
-export const { addToFavourites } = favouritesSlice.actions
+export const { updateFavoritesList, toggleFavModalStatus } = favouritesSlice.actions
 export default favouritesSlice.reducer

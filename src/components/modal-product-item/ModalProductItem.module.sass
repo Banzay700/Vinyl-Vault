@@ -3,6 +3,7 @@
 
 
 .product-item
+   position: relative
    padding: 10px
    display: flex
    gap: 10px
@@ -10,7 +11,6 @@
    font-weight: 400
    border-bottom: $border-width $border-color solid
    cursor: pointer
-
    &:hover .image
       box-shadow: 0 0 24px 9px rgba(150, 150, 150, 0.24)
       border: $border-width $border-color-dark solid
@@ -23,7 +23,6 @@
    max-width: 110px
    transition: all 0.25s
    border: $border-width $border-color solid
-
    img
       max-width: 100%
 
@@ -44,3 +43,9 @@
    font-weight: 300
 
 
+.delete-icon
+   transition: color 0.25s
+   font-size: 14px
+   @include absolute(null, null, null, 493px)
+   &:hover
+      color: $color-highlight

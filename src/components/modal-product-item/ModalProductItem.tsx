@@ -1,12 +1,22 @@
+import { CloseOutlined } from '@ant-design/icons'
+import { motion } from 'framer-motion'
 import { FC } from 'react'
 
+import { productAnimation } from 'utils'
 import { ProductType } from 'types'
 
 import s from './ModalProductItem.module.sass'
 
-const ModalProductItem: FC<ProductType> = ({ id, image, artist, title, price }) => {
+interface ModalProductItemProps {
+  product: ProductType
+  handleClose: () => void
+}
+
+const ModalProductItem: FC<ModalProductItemProps> = ({ product, handleClose }) => {
+  const { image, artist, title, price } = product
+
   return (
-    <span className={s.productItem}>
+    <motion.span className={s.productItem} {...productAnimation}>
       <div className={s.image}>
         <img src={image} alt="product" />
       </div>
@@ -14,11 +24,13 @@ const ModalProductItem: FC<ProductType> = ({ id, image, artist, title, price }) 
         <div className={s.productText}>
           <div>{artist}</div>
           <div className={s.productDescription}>{title}</div>
-          <div className={s.productActions}></div>
         </div>
-        <div>{price}$</div>
+        {price}$
       </div>
-    </span>
+      <motion.button whileTap={{ scale: 1.02 }} className={s.deleteIcon} onClick={handleClose}>
+        <CloseOutlined />
+      </motion.button>
+    </motion.span>
   )
 }
 

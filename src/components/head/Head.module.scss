@@ -1,9 +1,0 @@
-@import 'src/style/variables';
-@import 'src/style/mixins';
-
-.head {
-  border-bottom: $border-width $border-color solid;
-  height: 68%;
-  padding: 0 18px 0 18px;
-  @include flexProperty(center, space-between, null, null);
-}

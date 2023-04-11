@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import s from './Banner.module.scss'
+import s from './Banner.module.sass'
 
 interface BannerProps {
   children?: string

@@ -1,14 +1,14 @@
 import { Logo } from 'UI'
-import { UserActions } from 'modules'
+import { UserModalTriggers } from 'components'
 
-import s from './Head.module.scss'
+import s from './Head.module.sass'
 
 const Head = () => {
   return (
     <div className={s.head}>
       <Logo />
       <div>Search will be here</div>
-      <UserActions />
+      <UserModalTriggers />
     </div>
   )
 }

@@ -1,0 +1,60 @@
+@import 'src/style/variables'
+@import 'src/style/mixins'
+
+
+.modal
+  position: relative
+  z-index: 20
+  top: 0
+  right: 0
+  background-color: $bg-color-secondary
+  border: $border-width $border-color-dark solid
+  border-right: none
+  border-right: none
+  @include flexProperty(null, null, column, null)
+  @include absolute(29%, 100vh, null, null)
+
+
+.modal-title
+  padding: 8px 12px
+  margin-top: 5px
+  position: relative
+  font-size: $font-heading-l
+
+
+.modal-item-counter
+  font-size: $font-body-m
+  font-weight: 300
+  padding: 4px 12px
+
+
+.content
+  padding: 8px 12px
+  flex-grow: 1
+  overflow-y: scroll
+
+
+.item-counter
+  font-size: $font-body-l
+  font-weight: 300
+
+
+.overlay
+  z-index: 20
+  position: fixed
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+  background-color: rgba(0, 0, 0, 0.5)
+
+
+.close-icon
+  position: absolute
+  content: ''
+  top: 14px
+  right: 13px
+  font-size: $font-heading-l
+  cursor: pointer
+  z-index: 10
+

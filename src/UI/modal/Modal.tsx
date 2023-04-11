@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
 
 import { modalAnimation } from 'utils/index'
-import s from './Modal.module.scss'
+import s from './Modal.module.sass'
 
 interface ModalProps {
   handleClose: () => void

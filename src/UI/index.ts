@@ -1,6 +1,7 @@
 export { Logo } from './logo'
-export { IconButton } from './icon-button'
+export { BadgeButton } from './badge-button'
 export { Button } from './button'
 export { Banner } from './banner'
 export { Modal } from './modal'
 export { SummaryInfo } from './summary-info'
+export { IconUI } from './iconUI'
