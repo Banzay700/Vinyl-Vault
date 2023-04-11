@@ -2,17 +2,18 @@ import { CloseOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
 import { FC } from 'react'
 
-import { productAnimation, useAppDispatch } from 'utils'
-import { updateFavouritesList } from 'store'
+import { productAnimation } from 'utils'
 import { ProductType } from 'types'
 
 import s from './ModalProductItem.module.sass'
 
-const ModalProductItem: FC<ProductType> = (product) => {
-  const { image, artist, title, price } = product
-  const dispatch = useAppDispatch()
+interface ModalProductItemProps {
+  product: ProductType
+  handleClose: () => void
+}
 
-  const removeFavourite = () => dispatch(updateFavouritesList(product))
+const ModalProductItem: FC<ModalProductItemProps> = ({ product, handleClose }) => {
+  const { image, artist, title, price } = product
 
   return (
     <motion.span className={s.productItem} {...productAnimation}>
@@ -24,9 +25,9 @@ const ModalProductItem: FC<ProductType> = (product) => {
           <div>{artist}</div>
           <div className={s.productDescription}>{title}</div>
         </div>
-        <div>{price}$</div>
+        {price}$
       </div>
-      <motion.button whileTap={{ scale: 1.02 }} className={s.deleteIcon} onClick={removeFavourite}>
+      <motion.button whileTap={{ scale: 1.02 }} className={s.deleteIcon} onClick={handleClose}>
         <CloseOutlined />
       </motion.button>
     </motion.span>

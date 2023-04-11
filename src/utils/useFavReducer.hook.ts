@@ -1,33 +1,29 @@
 import { useAppDispatch, useAppSelector, calcTotalAmount } from 'utils'
-import { toggleFavModalStatus, updateFavouritesList } from 'store'
+import { toggleFavModalStatus, updateFavoritesList } from 'store'
 import { ProductType } from 'types'
 
 interface UseFavReducerReturnType {
   isOpened: boolean
   favProducts: ProductType[]
   totalAmount: number
-  favProductsQuantity: number
   changeFavModalStatus: () => void
-  updateFavouriteList: (favProduct: ProductType) => void
+  updateFavoriteList: (favProduct: ProductType) => void
 }
 
 export const useFavReducer = (): UseFavReducerReturnType => {
   const dispatch = useAppDispatch()
-  const isOpened = useAppSelector((state) => state.favourites.favouriteModalStatus)
-  const favProducts = useAppSelector((state) => state.favourites.favouritesList)
-  const favProductsQuantity = useAppSelector((state) => state.favourites.favouritesList).length
+  const isOpened = useAppSelector((state) => state.favorites.favoriteModalStatus)
+  const favProducts = useAppSelector((state) => state.favorites.favoritesList)
   const totalAmount = calcTotalAmount(favProducts)
 
   const changeFavModalStatus = () => dispatch(toggleFavModalStatus())
-  const updateFavouriteList = (favProduct: ProductType) =>
-    dispatch(updateFavouritesList(favProduct))
+  const updateFavoriteList = (favProduct: ProductType) => dispatch(updateFavoritesList(favProduct))
 
   return {
     isOpened,
     favProducts,
     totalAmount,
-    favProductsQuantity,
     changeFavModalStatus,
-    updateFavouriteList,
+    updateFavoriteList,
   }
 }

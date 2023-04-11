@@ -1,27 +1,23 @@
-import { ModalProductItem } from 'components'
+import { ModalProductItem, ModalProductList } from 'components'
 import { Button, Modal, SummaryInfo } from 'UI'
 import { useCartReducer } from 'utils'
 
 import s from './CartModal.module.sass'
 
 const CartModal = () => {
-  const { isOpened, totalAmount, cartProducts, cartProductsQuantity, changeCartModalStatus } =
-    useCartReducer()
+  const { isOpened, totalAmount, cartProducts, changeCartModalStatus } = useCartReducer()
 
   const checkout = () => {}
-  const cartProductList = cartProducts.map((product) => (
-    <ModalProductItem key={product.id} {...product} />
-  ))
 
   return (
     <>
       {isOpened && (
         <Modal
           handleClose={changeCartModalStatus}
-          heading="Favourites"
-          itemCount={cartProductsQuantity}>
+          heading="Your Cart"
+          itemCount={cartProducts.length}>
           <div className={s.productsListWrapper}>
-            <div className={s.productsList}>{cartProductList}</div>
+            <ModalProductList products={cartProducts} cartView />
             <SummaryInfo totalAmount={totalAmount}>
               <Button onClick={checkout}>Checkout</Button>
             </SummaryInfo>

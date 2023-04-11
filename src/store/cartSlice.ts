@@ -22,9 +22,14 @@ const cartSlice = createSlice({
     toggleCartModalStatus(state) {
       state.cartStatus = !state.cartStatus
     },
+    removeItem(state, action: PayloadAction<ProductType>) {
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id)
+
+      localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
   },
 })
 
-export const { toggleCartModalStatus, addToCart } = cartSlice.actions
+export const { toggleCartModalStatus, addToCart, removeItem } = cartSlice.actions
 
 export default cartSlice.reducer

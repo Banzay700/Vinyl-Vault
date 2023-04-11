@@ -11,4 +11,6 @@ export type ProductType = {
   default: boolean
   defaultStyle: boolean
   productData: null
+  handleClose: () => void
+  favoriteView: boolean
 }

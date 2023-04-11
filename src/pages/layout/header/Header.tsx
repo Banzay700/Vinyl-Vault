@@ -1,6 +1,6 @@
 import { Head, Nav } from 'components'
 
-import s from './Header.module.scss'
+import s from './Header.module.sass'
 
 const Header = () => {
   return (

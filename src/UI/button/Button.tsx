@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 import React, { FC } from 'react'
 
-import s from './Button.module.scss'
+import s from './Button.module.sass'
 
 interface ButtonProps {
   children: string | React.ReactNode

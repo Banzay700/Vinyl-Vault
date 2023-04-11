@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-import { ProductList, Product } from 'modules'
+import { ProductList } from 'modules'
 import { Pagination } from 'components'
 import { Banner } from 'UI'
-import { ProductType } from 'types'
 import { pageAnimation } from 'utils'
 import { ShopSidebar } from './collection-sidedar'
 import { content, heading } from './collection.utils'
 
 // '../../../server/db.json' mock-data
 
-import s from './Collection.module.scss'
+import s from './Collection.module.sass'
 
 const Collection = () => {
   const [products, setProducts] = useState([])
@@ -22,15 +21,13 @@ const Collection = () => {
       .then((data) => setProducts(data))
   }, [])
 
-  const allProducts = products.map((item: ProductType) => <Product key={item.id} {...item} />)
-
   return (
     <motion.div className={s.collection} {...pageAnimation}>
       <Banner heading={heading}>{content}</Banner>
       <div className={s.contentWrapper}>
         <ShopSidebar />
         <div className={s.content}>
-          <ProductList>{allProducts}</ProductList>
+          <ProductList products={products} />
           <Pagination />
         </div>
       </div>

@@ -1,23 +1,19 @@
-import { ModalProductItem } from 'components'
+import { ModalProductItem, ModalProductList } from 'components'
 import { Button, Modal, SummaryInfo } from 'UI'
 import { useCartReducer, useFavReducer } from 'utils'
 
 import s from './FavouritesModal.module.sass'
 
 const FavouritesModal = () => {
-  const { isOpened, favProducts, totalAmount, changeFavModalStatus, updateFavouriteList } =
+  const { isOpened, favProducts, totalAmount, changeFavModalStatus, updateFavoriteList } =
     useFavReducer()
   const { addProductToCart } = useCartReducer()
 
   const addFavoritesToCart = () => {
     addProductToCart(favProducts)
-    favProducts.forEach((product) => updateFavouriteList(product))
+    favProducts.forEach((product) => updateFavoriteList(product))
     setTimeout(changeFavModalStatus, 650)
   }
-
-  const favouritesProducts = favProducts.map((product) => (
-    <ModalProductItem key={product.id} {...product} />
-  ))
 
   return (
     <>
@@ -27,7 +23,7 @@ const FavouritesModal = () => {
           heading="Favourites"
           itemCount={favProducts.length}>
           <div className={s.productsListWrapper}>
-            <div className={s.productsList}>{favouritesProducts}</div>
+            <ModalProductList products={favProducts} favoriteView />
             <SummaryInfo totalAmount={totalAmount}>
               <Button onClick={addFavoritesToCart}>Add to Cart</Button>
             </SummaryInfo>

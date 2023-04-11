@@ -2,9 +2,10 @@ import { FC, useEffect, useState } from 'react'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
 
+import { IconUI } from 'UI'
 import { productAnimation, useCartReducer, useFavReducer } from 'utils'
 import { ProductType } from 'types'
-import { ReactComponent as KeyIcon } from 'assets/key.svg'
+import { KeyIcon } from 'assets'
 
 import s from './Product.module.sass'
 
@@ -13,7 +14,7 @@ const Product: FC<ProductType> = (product) => {
 
   const [iconStyle, setIconStyle] = useState(s.favIcon)
 
-  const { favProducts, updateFavouriteList } = useFavReducer()
+  const { favProducts, updateFavoriteList } = useFavReducer()
   const { addProductToCart } = useCartReducer()
 
   const isMatch = favProducts.some((item: ProductType) => item.id === id)
@@ -24,16 +25,15 @@ const Product: FC<ProductType> = (product) => {
     setIconStyle(style)
   }, [isMatch])
 
-  const updateFavourites = () => updateFavouriteList(product)
-  const addProduct = () => addProductToCart(product)
-
   return (
     <motion.div className={s.product} {...productAnimation}>
       <div className={s.image}>
         <img src={image} alt="product" />
-        <motion.div whileTap={{ scale: 1.1 }} className={s.iconWrapper} title="Add to Favourites">
-          <KeyIcon className={iconStyle} onClick={updateFavourites} />
-        </motion.div>
+        <div className={s.iconWrapper}>
+          <IconUI onClick={() => updateFavoriteList(product)} title="Add to Favourites">
+            <KeyIcon className={iconStyle} />
+          </IconUI>
+        </div>
       </div>
       <div className={s.productInfo}>
         <div>
@@ -41,10 +41,10 @@ const Product: FC<ProductType> = (product) => {
           <div className={s.description}>{title}</div>
         </div>
         <div className={s.price}>
-          <div>${price}</div>
-          <button onClick={addProduct} className={s.buttonWrapper} type="submit">
+          ${price}
+          <IconUI onClick={() => addProductToCart(product)} title="Buy">
             <ShoppingCartOutlined />
-          </button>
+          </IconUI>
         </div>
       </div>
     </motion.div>

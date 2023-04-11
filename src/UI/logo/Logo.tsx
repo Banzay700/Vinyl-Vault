@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { ReactComponent as HeaderLogo } from 'assets/logo.svg'
+import { HeaderLogo } from 'assets'
 
-import s from './Logo.module.scss'
+import s from './Logo.module.sass'
 
 const Logo = () => {
   return (

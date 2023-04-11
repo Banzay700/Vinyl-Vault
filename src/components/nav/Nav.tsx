@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import s from './Nav.module.scss'
+import s from './Nav.module.sass'
 
 type ClassNameProp = { isActive: boolean }
 
