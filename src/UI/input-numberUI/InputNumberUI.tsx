@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { InputNumber } from 'antd'
 
 import s from './InputNumberUI.module.sass'
@@ -6,7 +6,7 @@ import s from './InputNumberUI.module.sass'
 interface InputNumberProps {
   defaultValue: number
   max: number
-  onChange: () => void
+  onChange: (value: number | null) => void
 }
 
 const InputNumberUI: FC<InputNumberProps> = ({ defaultValue, max, onChange }) => {

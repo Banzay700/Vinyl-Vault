@@ -1,6 +1,6 @@
 import { CloseOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import { productAnimation, useAppDispatch, useCartReducer } from 'utils'
 import { IconUI, Img, InputNumberUI } from 'UI'
@@ -16,13 +16,15 @@ interface ModalProductItemProps {
 
 const ModalProductItem: FC<ModalProductItemProps> = ({ product, handleClose }) => {
   const { id, image, artist, title, price, sold, inStock, total } = product
+
   const dispatch = useAppDispatch()
   const { cartProducts, isOpened } = useCartReducer()
 
-  const calcTotal = (value: number) => {
+  const calcTotal = (value: number | null) => {
     const updatedProducts = cartProducts.slice()
-    const index = updatedProducts.findIndex((item) => item.id === id)
-    updatedProducts[index] = { ...updatedProducts[index], sold: value, total: price * value }
+    const i = updatedProducts.findIndex((item) => item.id === id)
+    const soldValue = value ?? 0
+    updatedProducts[i] = { ...updatedProducts[i], sold: soldValue, total: price * soldValue }
 
     dispatch(updateCart(updatedProducts))
   }

@@ -4,7 +4,8 @@ import { motion } from 'framer-motion'
 import { ProductList } from 'modules'
 import { Pagination } from 'components'
 import { Banner } from 'UI'
-import { pageAnimation } from 'utils'
+import { pageAnimation, useAppDispatch, useAppSelector } from 'utils'
+import { getCollection } from 'store'
 import { ShopSidebar } from './collection-sidedar'
 import { content, heading } from './collection.utils'
 
@@ -13,13 +14,12 @@ import { content, heading } from './collection.utils'
 import s from './Collection.module.sass'
 
 const Collection = () => {
-  const [products, setProducts] = useState([])
+  const products = useAppSelector((state) => state.collection.collection)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    fetch('http://localhost:3001/collection')
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-  }, [])
+    dispatch(getCollection({}))
+  }, [dispatch])
 
   return (
     <motion.div className={s.collection} {...pageAnimation}>
