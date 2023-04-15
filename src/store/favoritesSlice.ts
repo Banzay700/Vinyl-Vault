@@ -3,7 +3,7 @@ import { ProductType } from 'types'
 
 const favoritesList = JSON.parse(localStorage.getItem('favorites') || '[]') as ProductType[]
 
-const favouritesSlice = createSlice({
+const favoritesSlice = createSlice({
   name: 'favourites',
   initialState: {
     favoritesList,
@@ -29,5 +29,5 @@ const favouritesSlice = createSlice({
   },
 })
 
-export const { updateFavoritesList, toggleFavModalStatus } = favouritesSlice.actions
-export default favouritesSlice.reducer
+export const { updateFavoritesList, toggleFavModalStatus } = favoritesSlice.actions
+export default favoritesSlice.reducer
