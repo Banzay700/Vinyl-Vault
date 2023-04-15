@@ -2,6 +2,7 @@
 @import 'src/style/mixins'
 
 
+
 .product-item
    position: relative
    padding: 10px
@@ -23,8 +24,6 @@
    max-width: 110px
    transition: all 0.25s
    border: $border-width $border-color solid
-   img
-      max-width: 100%
 
 
 .product-info
@@ -43,9 +42,10 @@
    font-weight: 300
 
 
-.delete-icon
+.delete
+   color: $color-primary
    transition: color 0.25s
    font-size: 14px
    @include absolute(null, null, null, 493px)
    &:hover
-      color: $color-highlight
+      color: $color-highlight !important

@@ -8,9 +8,7 @@ export type ProductType = {
   description: string
   label: string
   formats: string
-  default: boolean
-  defaultStyle: boolean
-  productData: null
-  handleClose: () => void
-  favoriteView: boolean
+  inStock: number
+  sold: number
+  total: number
 }

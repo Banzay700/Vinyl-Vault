@@ -10,7 +10,7 @@ const FavouritesModal = () => {
   const { addProductToCart } = useCartReducer()
 
   const addFavoritesToCart = () => {
-    addProductToCart(favProducts)
+    favProducts.forEach((product) => addProductToCart(product))
     favProducts.forEach((product) => updateFavoriteList(product))
     setTimeout(changeFavModalStatus, 650)
   }

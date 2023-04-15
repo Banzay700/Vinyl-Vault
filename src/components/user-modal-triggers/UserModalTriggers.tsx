@@ -5,12 +5,12 @@ import s from './UserModalTriggers.module.sass'
 
 const UserModalTriggers = () => {
   const { favProducts, changeFavModalStatus } = useFavReducer()
-  const { cartProducts, changeCartModalStatus } = useCartReducer()
+  const { productsQuantity, changeCartModalStatus } = useCartReducer()
 
   return (
     <div className={s.userActions}>
       <BadgeButton onClick={changeFavModalStatus} counter={favProducts.length} primary />
-      <BadgeButton onClick={changeCartModalStatus} counter={cartProducts.length} secondary />
+      <BadgeButton onClick={changeCartModalStatus} counter={productsQuantity} secondary />
     </div>
   )
 }
