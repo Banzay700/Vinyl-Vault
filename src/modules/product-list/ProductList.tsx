@@ -1,15 +1,20 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 
-import { ProductType } from 'types'
 import { Product } from 'modules'
+import { useAppSelector, useAppDispatch } from 'utils'
+import { getCollection } from 'store'
+import { ProductType } from 'types'
 
 import s from './ProductList.module.sass'
 
-interface ProductListProps {
-  products: ProductType[]
-}
+const ProductList: FC = () => {
+  const products = useAppSelector((state) => state.collection.collection)
+  const dispatch = useAppDispatch()
 
-const ProductList: FC<ProductListProps> = ({ products }) => {
+  useEffect(() => {
+    dispatch(getCollection({}))
+  }, [dispatch])
+
   return (
     <div className={s.productList}>
       {products.map((product: ProductType) => (

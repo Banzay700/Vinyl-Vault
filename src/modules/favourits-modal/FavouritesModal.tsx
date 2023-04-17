@@ -25,7 +25,7 @@ const FavouritesModal = () => {
           <div className={s.productsListWrapper}>
             <ModalProductList products={favProducts} favoriteView />
             <SummaryInfo totalAmount={totalAmount}>
-              <Button onClick={addFavoritesToCart}>Add to Cart</Button>
+              <Button onClick={addFavoritesToCart}>Add to cart</Button>
             </SummaryInfo>
           </div>
         </Modal>

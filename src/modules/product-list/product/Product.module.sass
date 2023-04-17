@@ -2,6 +2,10 @@
 @import 'src/style/mixins'
 
 
+.product-wrapper
+  display: flex
+
+
 .product
   height: 48%
   width: 16%
@@ -9,34 +13,38 @@
   font-weight: 300
   font-size: $font-body-xl
   user-select: none
-  @include flexColumn
+  display: flex
+  &:hover .view
+    transform: translateY(0)
+  &:hover .image
+    border: $border-width $border-color-dark solid
+    box-shadow: 0 6px 12px 1px rgba(150, 150, 150, 0.8)
+
 
 
 .image
   position: relative
+  overflow: hidden
   cursor: pointer
   transition: all 0.25s
   border: $border-width $border-color solid
   box-shadow: 0 6px 12px 1px rgba(150, 150, 150, 0.25)
   @include flexCenter(null, null)
-  &:hover
-    border: $border-width $border-color-dark solid
-    box-shadow: 0 6px 12px 1px rgba(150, 150, 150, 0.8)
+
 
 
 .product-info
   font-size: $font-body-l
-  height: 28%
-  max-height: 100px
-  flex-grow: 1
-  padding-top: 5px
-  @include flexColumn
+  display: flex
+  flex-direction: column
+  height: 24%
+
 
 
 .title
   font-size: $font-body-xl
   font-weight: 400
-  margin-bottom: 3px
+  margin: 5px 0 3px
 
 
 .description
@@ -56,7 +64,7 @@
   position: absolute
   content: ''
   top: 2%
-  left: 89%
+  right: 3%
 
 
 .buttonWrapper
@@ -72,3 +80,17 @@
 .fav-icon-active
   color: $color-primary
 
+
+.view
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 12%
+  text-align: center
+  padding-top: 3%
+  background-color: $color-primary
+  color: $color-secondary
+  font-weight: 500
+  transform: translateY(100%)
+  transition: transform 0.3s

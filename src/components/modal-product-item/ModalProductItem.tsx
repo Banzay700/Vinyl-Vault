@@ -42,7 +42,9 @@ const ModalProductItem: FC<ModalProductItemProps> = ({ product, handleClose }) =
       <IconUI onClick={handleClose} title="Delete" style={s.delete}>
         <CloseOutlined />
       </IconUI>
-      {isOpened && <InputNumberUI defaultValue={sold} max={inStock} onChange={calcTotal} />}
+      <div className={s.inputWrapper}>
+        {isOpened && <InputNumberUI defaultValue={sold} max={inStock} onChange={calcTotal} />}
+      </div>
     </motion.span>
   )
 }
