@@ -1,26 +1,28 @@
 import React, { FC } from 'react'
 import { InputNumber } from 'antd'
 
-import s from './InputNumberUI.module.sass'
+import s from './InputSelect.module.sass'
 
 interface InputNumberProps {
-  defaultValue: number
+  value: number
   max: number
+  size?: 'small' | 'middle' | 'large' | undefined
   onChange: (value: number | null) => void
 }
 
-const InputNumberUI: FC<InputNumberProps> = ({ defaultValue, max, onChange }) => {
+const InputSelect: FC<InputNumberProps> = ({ value, max, size, onChange }) => {
   return (
     <div className={s.inputNumberWrapper}>
       <InputNumber
         className={s.inputNumber}
-        defaultValue={defaultValue}
+        defaultValue={value}
         min={1}
         max={max}
         onChange={onChange}
+        size={size}
       />
     </div>
   )
 }
 
-export default InputNumberUI
+export default InputSelect

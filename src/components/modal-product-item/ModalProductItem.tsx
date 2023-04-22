@@ -1,9 +1,9 @@
 import { CloseOutlined } from '@ant-design/icons'
 import { motion } from 'framer-motion'
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { productAnimation, useAppDispatch, useCartReducer } from 'utils'
-import { IconUI, Img, InputNumberUI } from 'UI'
+import { IconUI, Img, InputSelect } from 'UI'
 import { updateCart } from 'store'
 import { ProductType } from 'types'
 
@@ -43,7 +43,7 @@ const ModalProductItem: FC<ModalProductItemProps> = ({ product, handleClose }) =
         <CloseOutlined />
       </IconUI>
       <div className={s.inputWrapper}>
-        {isOpened && <InputNumberUI defaultValue={sold} max={inStock} onChange={calcTotal} />}
+        {isOpened && <InputSelect value={sold} max={inStock} onChange={calcTotal} />}
       </div>
     </motion.span>
   )

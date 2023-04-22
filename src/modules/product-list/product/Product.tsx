@@ -10,7 +10,7 @@ import { ProductType } from 'types'
 import { KeyIcon } from 'assets'
 import s from './Product.module.sass'
 
-const Product: FC<ProductType> = (product) => {
+const Product: FC<ProductType> = ({ ...product }) => {
   const { id, image, artist, title, price } = product
 
   const [iconStyle, setIconStyle] = useState(s.favIcon)

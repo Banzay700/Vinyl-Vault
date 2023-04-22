@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import { FavouritesModal, CartModal } from 'modules'
+import { Favorites, Cart } from 'modules'
 import { Header } from './header'
 import { Footer } from './footer'
 
@@ -13,8 +13,8 @@ const Layout = () => {
       <div className={s.content}>
         <Outlet />
       </div>
-      <CartModal />
-      <FavouritesModal />
+      <Cart />
+      <Favorites />
       <Footer />
     </div>
   )

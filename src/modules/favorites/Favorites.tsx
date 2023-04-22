@@ -1,10 +1,10 @@
-import { ModalProductItem, ModalProductList } from 'components'
+import { ModalProductList } from 'components'
 import { Button, Modal, SummaryInfo } from 'UI'
 import { useCartReducer, useFavReducer } from 'utils'
 
-import s from './FavouritesModal.module.sass'
+import s from './Favorites.module.sass'
 
-const FavouritesModal = () => {
+const Favorites = () => {
   const { isOpened, favProducts, totalAmount, changeFavModalStatus, updateFavoriteList } =
     useFavReducer()
   const { addProductToCart } = useCartReducer()
@@ -20,7 +20,7 @@ const FavouritesModal = () => {
       {isOpened && (
         <Modal
           handleClose={changeFavModalStatus}
-          heading="Favourites"
+          heading="Favorites"
           itemCount={favProducts.length}>
           <div className={s.productsListWrapper}>
             <ModalProductList products={favProducts} favoriteView />
@@ -34,4 +34,4 @@ const FavouritesModal = () => {
   )
 }
 
-export default FavouritesModal
+export default Favorites

@@ -4,12 +4,24 @@
 .button
   width: 100%
   height: 100%
+  padding: 11px
   text-align: center
   color: $color-secondary
   font-size: $font-button
-  background-color: $btn-primary
+  background-color: $btn-default
   border-radius: $border-radius
+  transition: background-color 0.25s
   &:hover
-    background-color: $btn-primary-hover
+    background-color: $btn-default-hover
 
 
+.secondary
+  background-color: $btn-secondary
+  &:hover
+    background-color: $btn-secondary-hover
+
+
+.primary
+  background-color: $btn-primary
+  &:hover
+    background-color: $btn-primary
