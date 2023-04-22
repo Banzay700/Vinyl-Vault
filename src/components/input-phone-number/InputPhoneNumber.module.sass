@@ -1,0 +1,61 @@
+@import "src/style/variables"
+
+.phone-container
+  padding: 10px 0
+  width: 100%
+
+.phone-wrapper
+  position: relative
+  padding: 5px 0
+  border: $border-width solid $color-tertiary
+  border-radius: $border-radius
+
+
+.react-tel-input
+  width: 100%
+
+
+.container
+
+
+  .form-control
+    width: 100%
+    background-color: $bg-color-primary
+    font-family: $typeface-primary
+    border: none
+
+
+  .flag-dropdown
+    border: none
+    div:hover, .open
+      background-color: $bg-color-primary
+
+
+.label
+  position: absolute
+  left: 44px
+  top: 14px
+  padding: 0 5px
+  color: $input-label-color
+  background-color: $bg-color-primary
+  transform-origin: 0 0
+  user-select: none
+  transition: transform 0.2s ease-in-out
+
+
+.selected
+  transform: translate(-33px, -19px) scale(0.8)
+
+
+.warning-message
+  font-size: $font-body-m
+  color: $color-highlight
+  padding-left: 5px
+
+
+.input-error
+  border-color: $color-highlight
+
+
+.label-error
+  color: $color-highlight

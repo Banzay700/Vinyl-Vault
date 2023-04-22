@@ -1,13 +1,13 @@
-import { ModalProductItem, ModalProductList } from 'components'
+import { Link } from 'react-router-dom'
+
+import { ModalProductList } from 'components'
 import { Button, Modal, SummaryInfo } from 'UI'
 import { useCartReducer } from 'utils'
 
-import s from './CartModal.module.sass'
+import s from './Cart.module.sass'
 
-const CartModal = () => {
+const Cart = () => {
   const { isOpened, totalAmount, cartProducts, changeCartModalStatus } = useCartReducer()
-
-  const checkout = () => {}
 
   return (
     <>
@@ -19,7 +19,9 @@ const CartModal = () => {
           <div className={s.productsListWrapper}>
             <ModalProductList products={cartProducts} cartView />
             <SummaryInfo totalAmount={totalAmount}>
-              <Button onClick={checkout}>Checkout</Button>
+              <Link to="checkout">
+                <Button>Checkout</Button>
+              </Link>
             </SummaryInfo>
           </div>
         </Modal>
@@ -28,4 +30,4 @@ const CartModal = () => {
   )
 }
 
-export default CartModal
+export default Cart

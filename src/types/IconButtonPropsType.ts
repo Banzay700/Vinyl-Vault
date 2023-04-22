@@ -4,6 +4,6 @@ type CommonIconButtonProps = {
 }
 
 type PrimaryIconProps = CommonIconButtonProps & { primary: boolean; secondary?: never }
-type SecondaryButtonProps = CommonIconButtonProps & { secondary: boolean; primary?: never }
+type SecondaryIconProps = CommonIconButtonProps & { secondary: boolean; primary?: never }
 
-export type IconButtonPropsType = PrimaryIconProps | SecondaryButtonProps
+export type IconButtonPropsType = PrimaryIconProps | SecondaryIconProps

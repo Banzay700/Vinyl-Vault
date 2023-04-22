@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import { Layout, Home, Collection, About, NotFoundPage, ProductPage } from 'pages'
+import { Layout, Home, Collection, About, NotFoundPage, ProductPage, Checkout } from 'pages'
+import { InformationStep } from 'pages/checkout'
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
           <Route path="collection/:id" element={<ProductPage />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<NotFoundPage />} />
+        </Route>
+        <Route path="checkout/*" element={<Checkout />}>
+          <Route index element={<InformationStep />} />
         </Route>
       </Routes>
     </div>

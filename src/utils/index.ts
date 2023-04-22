@@ -5,4 +5,4 @@ export { useCartReducer } from './useCartReducer.hook'
 
 export { calcTotalAmount } from './calcTotalAmount'
 export { sumPropValue } from './sumPropValue'
-export { productAnimation, pageAnimation, modalAnimation } from './motionOptions'
+export { productAnimation, pageAnimation, modalAnimation, fadeInAnimation } from './motionOptions'
