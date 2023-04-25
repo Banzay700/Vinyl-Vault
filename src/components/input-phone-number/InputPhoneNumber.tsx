@@ -1,7 +1,9 @@
-import { FC, useState } from 'react'
+import React, { FC, useState } from 'react'
 import cn from 'classnames'
 import { useField, useFormikContext } from 'formik'
-import PhoneInput from 'react-phone-input-2'
+
+import PI, { PhoneInputProps } from 'react-phone-input-2'
+
 import 'react-phone-input-2/lib/style.css'
 
 import s from './InputPhoneNumber.module.sass'
@@ -10,6 +12,8 @@ interface InputPhoneNumberProps {
   name: string
   label: string
 }
+
+const ReactPhoneInput: React.FC<PhoneInputProps> = (PI as any).default || PI
 
 const InputPhoneNumber: FC<InputPhoneNumberProps> = ({ name, label }) => {
   const [labelStyle, setLabelStyle] = useState(false)
@@ -27,7 +31,7 @@ const InputPhoneNumber: FC<InputPhoneNumberProps> = ({ name, label }) => {
   return (
     <div className={s.phoneContainer}>
       <div className={cn(s.phoneWrapper, { [s.inputError]: validationError })}>
-        <PhoneInput
+        <ReactPhoneInput
           {...field}
           onChange={onChange}
           onFocus={onFocus}

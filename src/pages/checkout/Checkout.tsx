@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { motion } from 'framer-motion'
 import { Outlet } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ import { CheckoutHeader } from './checkout-header'
 
 import s from './Checkout.module.sass'
 
-const Checkout: FC = () => {
+const Checkout = () => {
   return (
     <motion.div {...pageAnimation} className={s.container}>
       <div className={s.checkoutSide}>

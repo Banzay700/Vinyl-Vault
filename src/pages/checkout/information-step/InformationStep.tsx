@@ -27,7 +27,7 @@ const InformationStep = () => {
   return (
     <div>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-        {() => (
+        {(props) => (
           <Form>
             <CountrySelect name="country" label="Country" />
             <div className={s.row}>
