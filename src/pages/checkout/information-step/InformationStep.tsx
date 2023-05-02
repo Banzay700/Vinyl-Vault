@@ -1,15 +1,17 @@
+import { useEffect, useState } from 'react'
 import { Form, Formik } from 'formik'
-import { useNavigate } from 'react-router-dom'
 
-import { CountrySelect, Input, InputPhoneNumber } from 'components'
+import { useNavigate } from 'react-router-dom'
+import { CountrySelect, FormInput, InputPhoneNumber } from 'components'
 import { Button } from 'UI'
 import { useCartReducer } from 'utils'
 import { CheckoutFormValuesType } from 'types'
-import { initialValues, validationSchema } from './informationStep.utils'
 
+import { initialValues, validationSchema } from './informationStep.utils'
 import s from './InformationStep.module.sass'
 
 const InformationStep = () => {
+  const [formValues, setFormValues] = useState(initialValues)
   const { cartProducts } = useCartReducer()
 
   const navigate = useNavigate()
@@ -20,28 +22,37 @@ const InformationStep = () => {
 
   const onSubmit = (values: CheckoutFormValuesType) => {
     const orderInfo = { ...values, order }
-
-    console.log(orderInfo)
+    sessionStorage.setItem('userInfo', JSON.stringify(values))
+    navigate('shipping')
   }
+
+  useEffect(() => {
+    const values = JSON.parse(sessionStorage.getItem('userInfo') || 'null')
+    setFormValues(values)
+  }, [])
 
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-        {(props) => (
+      <Formik
+        initialValues={formValues || initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+        enableReinitialize>
+        {() => (
           <Form>
             <CountrySelect name="country" label="Country" />
             <div className={s.row}>
-              <Input name="firstname" label="First name" type="text" />
-              <Input name="lastname" label="Last name" type="text" />
+              <FormInput name="firstname" label="First name" type="text" />
+              <FormInput name="lastname" label="Last name" type="text" />
             </div>
-            <Input name="address" label="Address" type="text" />
+            <FormInput name="address" label="Address" type="text" />
             <div className={s.row}>
-              <Input name="apartment" label="Appartment, etc. (optional)" type="text" />
-              <Input name="age" label="Age" type="number" />
+              <FormInput name="apartment" label="Appartment, etc. (optional)" type="text" />
+              <FormInput name="age" label="Age" type="number" />
             </div>
             <div className={s.row}>
-              <Input name="postalCode" label="Postal Code (optional)" type="number" />
-              <Input name="city" label="City" type="text" />
+              <FormInput name="postalCode" label="Postal Code (optional)" type="number" />
+              <FormInput name="city" label="City" type="text" />
             </div>
             <InputPhoneNumber name="phone" label="Phone" />
             <div className={s.formActions}>
@@ -51,7 +62,7 @@ const InformationStep = () => {
                 </button>
               </div>
               <div className={s.buttonWrapper}>
-                <Button primary>Checkout</Button>
+                <Button primary>Continue to shipping</Button>
               </div>
             </div>
           </Form>

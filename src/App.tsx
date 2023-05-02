@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { Layout, Home, Collection, About, NotFoundPage, ProductPage, Checkout } from 'pages'
-import { InformationStep } from 'pages/checkout'
+import { InformationStep, ShippingStep } from 'pages/checkout'
 
 function App() {
   return (
@@ -13,8 +13,9 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="checkout/*" element={<Checkout />}>
+        <Route path="information/*" element={<Checkout />}>
           <Route index element={<InformationStep />} />
+          <Route path="shipping" element={<ShippingStep />} />
         </Route>
       </Routes>
     </div>

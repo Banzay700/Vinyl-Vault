@@ -1,5 +1,5 @@
-import { ModalProductList } from 'components'
-import { Button, Modal, SummaryInfo } from 'UI'
+import { ModalProductList, SummaryInfo } from 'components'
+import { Button, Modal } from 'UI'
 import { useCartReducer, useFavReducer } from 'utils'
 
 import s from './Favorites.module.sass'

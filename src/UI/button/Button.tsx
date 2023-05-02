@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({ children, onClick, icon, secondary, primary }
       className={cn(s.button, { [s.secondary]: secondary }, { [s.primary]: primary })}
       type="submit">
       {children}
-      <div>{icon}</div>
+      {icon && <div>{icon}</div>}
     </motion.button>
   )
 }

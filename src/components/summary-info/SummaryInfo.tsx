@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { FC, ReactNode } from 'react'
-import { fadeInAnimation } from 'utils'
+import { fadeInAnimation } from 'utils/index'
 
 import s from './SummaryInfo.module.sass'
 
