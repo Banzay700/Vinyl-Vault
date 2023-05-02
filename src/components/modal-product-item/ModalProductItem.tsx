@@ -16,11 +16,12 @@ interface ModalProductItemProps {
 
 const ModalProductItem: FC<ModalProductItemProps> = ({ product, handleClose }) => {
   const { id, image, artist, title, price, sold, inStock, total } = product
-
+  console.log('render ')
   const dispatch = useAppDispatch()
   const { cartProducts, isOpened } = useCartReducer()
 
   const calcTotal = (value: number | null) => {
+    console.log('Calc total')
     const updatedProducts = cartProducts.slice()
     const i = updatedProducts.findIndex((item) => item.id === id)
     const soldValue = value ?? 0

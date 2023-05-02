@@ -19,8 +19,8 @@ const ModalProductList: FC<ModalProductListProps> = ({ products, cartView, favor
       {products.map((product: ProductType) => (
         <ModalProductItem
           key={product.id}
-          product={product}
           handleClose={() => handleClose(product)}
+          product={product}
         />
       ))}
     </div>

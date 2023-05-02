@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
-import { ModalProductList } from 'components'
-import { Button, Modal, SummaryInfo } from 'UI'
+import { ModalProductList, SummaryInfo } from 'components'
+import { Button, Modal } from 'UI'
 import { useCartReducer } from 'utils'
 
 import s from './Cart.module.sass'
@@ -10,7 +10,7 @@ const Cart = () => {
   const { isOpened, totalAmount, cartProducts, changeCartModalStatus } = useCartReducer()
 
   return (
-    <>
+    <div>
       {isOpened && (
         <Modal
           handleClose={changeCartModalStatus}
@@ -19,14 +19,14 @@ const Cart = () => {
           <div className={s.productsListWrapper}>
             <ModalProductList products={cartProducts} cartView />
             <SummaryInfo totalAmount={totalAmount}>
-              <Link to="checkout">
+              <Link to="information">
                 <Button>Checkout</Button>
               </Link>
             </SummaryInfo>
           </div>
         </Modal>
       )}
-    </>
+    </div>
   )
 }
 

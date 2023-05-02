@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ProductType } from 'types/ProductType'
+import { ProductType } from 'types'
 
 const cart = JSON.parse(localStorage.getItem('cart') || '[]') as ProductType[]
 

@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { ProductList } from 'modules'
 import { Pagination } from 'components'
 import { Banner } from 'UI'
-import { pageAnimation, useAppDispatch, useAppSelector } from 'utils'
-import { getCollection } from 'store'
+import { pageAnimation } from 'utils'
 import { ShopSidebar } from './collection-sidedar'
 import { content, heading } from './collection.utils'
 
