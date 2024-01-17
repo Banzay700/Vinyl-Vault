@@ -7,7 +7,7 @@ import { IconUI, Img, InputSelect } from 'UI'
 import { updateCart } from 'store'
 import { ProductType } from 'types'
 
-import s from './ModalProductItem.module.sass'
+import s from './ModalProductItem.module.scss'
 
 interface ModalProductItemProps {
   product: ProductType

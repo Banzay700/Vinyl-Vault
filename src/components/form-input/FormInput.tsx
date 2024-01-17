@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { Input } from 'UI'
 import { InputCommonPropsType } from 'types'
 
-import s from './FormInput.module.sass'
+import s from './FormInput.module.scss'
 
 const FormInput: FC<InputCommonPropsType> = ({ label, name, type }) => {
   const [field, meta] = useField(name)

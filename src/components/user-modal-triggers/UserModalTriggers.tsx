@@ -1,7 +1,7 @@
 import { BadgeButton } from 'UI'
 import { useCartReducer, useFavReducer } from 'utils'
 
-import s from './UserModalTriggers.module.sass'
+import s from './UserModalTriggers.module.scss'
 
 const UserModalTriggers = () => {
   const { favProducts, changeFavModalStatus } = useFavReducer()

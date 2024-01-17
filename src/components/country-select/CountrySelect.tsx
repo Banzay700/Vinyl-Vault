@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useField, useFormikContext } from 'formik'
 import { CountryDropdown } from 'react-country-region-selector'
 
-import s from './CountrySelect.module.sass'
+import s from './CountrySelect.module.scss'
 
 interface CountrySelectProps {
   name: string

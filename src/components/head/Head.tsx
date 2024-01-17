@@ -1,7 +1,7 @@
 import { Logo } from 'UI'
 import { UserModalTriggers } from 'components'
 
-import s from './Head.module.sass'
+import s from './Head.module.scss'
 
 const Head = () => {
   return (

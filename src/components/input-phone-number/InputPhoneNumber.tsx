@@ -6,7 +6,7 @@ import PI, { PhoneInputProps } from 'react-phone-input-2'
 
 import 'react-phone-input-2/lib/style.css'
 
-import s from './InputPhoneNumber.module.sass'
+import s from './InputPhoneNumber.module.scss'
 
 interface InputPhoneNumberProps {
   name: string

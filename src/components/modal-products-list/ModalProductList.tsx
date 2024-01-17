@@ -4,7 +4,7 @@ import { ModalProductItem } from 'components'
 import { ProductType, ModalProductListProps } from 'types'
 import { useFavReducer, useCartReducer } from 'utils'
 
-import s from './ModalProductList.module.sass'
+import s from './ModalProductList.module.scss'
 
 const ModalProductList: FC<ModalProductListProps> = ({ products, cartView, favoriteView }) => {
   const { updateFavoriteList } = useFavReducer()
