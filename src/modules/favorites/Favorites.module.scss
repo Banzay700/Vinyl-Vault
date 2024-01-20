@@ -1,0 +1,14 @@
+@import 'style/variables';
+@import 'style/mixins';
+
+
+.products-list{
+  @include flexColumn
+}
+
+
+
+.products-list-wrapper {
+  flex-grow: 1;
+  @include flexColumn
+}
