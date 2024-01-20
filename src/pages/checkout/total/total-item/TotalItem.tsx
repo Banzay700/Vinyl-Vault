@@ -4,7 +4,7 @@ import { Badge } from 'antd'
 import { Img } from 'UI'
 import { ProductType } from 'types'
 
-import s from './TotalItem.module.sass'
+import s from './TotalItem.module.scss'
 
 const TotalItem: FC<ProductType> = ({ image, total, sold, artist, release }) => {
   return (

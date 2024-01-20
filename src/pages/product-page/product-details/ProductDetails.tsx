@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 
 import { ProductType } from 'types'
 
-import s from './ProductDetails.module.sass'
+import s from './ProductDetails.module.scss'
 
 interface ProductDetailsProps {
   product: ProductType

@@ -8,7 +8,7 @@ import { useCartReducer } from 'utils'
 import { CheckoutFormValuesType } from 'types'
 
 import { initialValues, validationSchema } from './informationStep.utils'
-import s from './InformationStep.module.sass'
+import s from './InformationStep.module.scss'
 
 const InformationStep = () => {
   const [formValues, setFormValues] = useState(initialValues)

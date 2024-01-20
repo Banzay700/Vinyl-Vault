@@ -1,7 +1,7 @@
 import { Breadcrumb } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import s from './Breadcrumb.module.sass'
+import s from './Breadcrumb.module.scss'
 
 const CheckoutBreadcrumb = () => {
   const navigate = useNavigate()

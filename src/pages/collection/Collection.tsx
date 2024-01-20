@@ -9,7 +9,7 @@ import { content, heading } from './collection.utils'
 
 // '../../../server/db.json' mock-data
 
-import s from './Collection.module.sass'
+import s from './Collection.module.scss'
 
 const Collection = () => {
   return (

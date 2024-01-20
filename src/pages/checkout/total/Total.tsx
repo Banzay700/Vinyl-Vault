@@ -3,7 +3,7 @@ import { useCartReducer } from 'utils/useCartReducer.hook'
 import { TotalItem } from './total-item'
 import { TotalInfo } from './total-info'
 
-import s from './Total.module.sass'
+import s from './Total.module.scss'
 
 const Total = () => {
   const { cartProducts, totalAmount } = useCartReducer()
