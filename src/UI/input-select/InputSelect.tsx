@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { InputNumber } from 'antd'
 
-import s from './InputSelect.module.sass'
+import s from './InputSelect.module.scss'
 
 interface InputNumberProps {
   value: number

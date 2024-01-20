@@ -1,0 +1,12 @@
+@import 'style/variables';
+@import 'style/mixins';
+
+.icon-button {
+  display: flex;
+  position: relative;
+  font-size: 28px;
+}
+
+.badge-wrapper {
+  @include absolute(null, null, 18px, 25px);
+}

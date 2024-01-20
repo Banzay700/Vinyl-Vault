@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { HeaderLogo } from 'assets'
 
-import s from './Logo.module.sass'
+import s from './Logo.module.scss'
 
 const Logo = () => {
   return (

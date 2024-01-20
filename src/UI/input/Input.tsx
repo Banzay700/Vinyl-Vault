@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 import { InputCommonPropsType } from 'types'
 
-import s from './Input.module.sass'
+import s from './Input.module.scss'
 
 interface InputProps extends InputCommonPropsType {
   error?: string | boolean | undefined

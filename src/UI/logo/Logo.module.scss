@@ -1,0 +1,8 @@
+@import 'style/variables';
+@import 'style/mixins';
+
+.logo {
+  height: 100%;
+  flex-basis: 30%;
+  @include flexProperty(center, flex-start, null, null);
+}
