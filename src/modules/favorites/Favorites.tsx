@@ -2,7 +2,7 @@ import { ModalProductList, SummaryInfo } from 'components'
 import { Button, Modal } from 'UI'
 import { useCartReducer, useFavReducer } from 'utils'
 
-import s from './Favorites.module.sass'
+import s from './Favorites.module.scss'
 
 const Favorites = () => {
   const { isOpened, favProducts, totalAmount, changeFavModalStatus, updateFavoriteList } =

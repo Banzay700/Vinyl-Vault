@@ -16,6 +16,7 @@ export default defineConfig({
       types: '/src/types/',
       UI: '/src/UI/',
       utils: '/src/utils/',
+      style: '/src/style/',
     },
   },
   css: {
