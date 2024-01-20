@@ -5,7 +5,7 @@ import { pageAnimation } from 'utils'
 import { Total } from './total'
 import { CheckoutHeader } from './checkout-header'
 
-import s from './Checkout.module.sass'
+import s from './Checkout.module.scss'
 
 const Checkout = () => {
   return (

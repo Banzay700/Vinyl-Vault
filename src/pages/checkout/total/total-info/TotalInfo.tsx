@@ -1,4 +1,4 @@
-import s from 'pages/checkout/total/Total.module.sass'
+import s from 'pages/checkout/total/Total.module.scss'
 import { Input } from 'UI/input'
 import { Button } from 'UI/button'
 

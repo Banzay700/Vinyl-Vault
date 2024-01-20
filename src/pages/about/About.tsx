@@ -5,7 +5,7 @@ import { Banner } from 'UI'
 import { pageAnimation } from 'utils'
 
 import { heading, content } from './about.utils'
-import s from './About.module.sass'
+import s from './About.module.scss'
 
 const About: FC = () => {
   return (

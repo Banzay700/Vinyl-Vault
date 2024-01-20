@@ -4,7 +4,7 @@ import { Favorites, Cart } from 'modules'
 import { Header } from './header'
 import { Footer } from './footer'
 
-import s from './Layout.module.sass'
+import s from './Layout.module.scss'
 
 const Layout = () => {
   return (

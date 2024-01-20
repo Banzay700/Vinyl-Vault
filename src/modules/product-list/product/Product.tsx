@@ -8,7 +8,7 @@ import { productAnimation, useCartReducer, useFavReducer } from 'utils'
 import { ProductType } from 'types'
 
 import { KeyIcon } from 'assets'
-import s from './Product.module.sass'
+import s from './Product.module.scss'
 
 const Product: FC<ProductType> = ({ ...product }) => {
   const { id, image, artist, title, price } = product

@@ -1,7 +1,7 @@
 import { GooglePay, ShopPay } from 'assets'
 import { Button } from 'UI'
 
-import s from './ExpressCheckout.module.sass'
+import s from './ExpressCheckout.module.scss'
 
 const ExpressCheckout = () => {
   return (

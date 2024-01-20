@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from 'utils'
 import { getCollection } from 'store'
 import { ProductType } from 'types'
 
-import s from './ProductList.module.sass'
+import s from './ProductList.module.scss'
 
 const ProductList: FC = () => {
   const products = useAppSelector((state) => state.collection.collection)

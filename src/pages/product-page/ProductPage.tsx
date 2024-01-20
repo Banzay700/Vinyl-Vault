@@ -7,7 +7,7 @@ import { Button, Img, InputSelect } from 'UI'
 import { pageAnimation, useAppSelector, useCartReducer } from 'utils'
 import { ProductDetails } from './product-details'
 
-import s from './ProductPage.module.sass'
+import s from './ProductPage.module.scss'
 
 const ProductPage = () => {
   const { id } = useParams()

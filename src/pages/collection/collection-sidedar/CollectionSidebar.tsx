@@ -1,4 +1,4 @@
-import s from './CollectionSidebar.module.sass'
+import s from './CollectionSidebar.module.scss'
 import { InputPhoneNumber } from 'components/input-phone-number'
 
 const CollectionSidebar = () => {
