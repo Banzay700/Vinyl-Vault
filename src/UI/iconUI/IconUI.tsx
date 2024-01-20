@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import cn from 'classnames'
 
-import s from './IconUI.module.sass'
+import s from './IconUI.module.scss'
 
 interface IconUIProps {
   onClick: () => void

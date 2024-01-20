@@ -5,7 +5,7 @@ import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 
 import { IconButtonPropsType } from 'types'
 
-import s from './BadgeButton.module.sass'
+import s from './BadgeButton.module.scss'
 
 const BadgeButton: FC<IconButtonPropsType> = ({ onClick, counter, primary, secondary }) => {
   return (

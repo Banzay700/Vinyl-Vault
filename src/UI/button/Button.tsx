@@ -4,7 +4,7 @@ import cn from 'classnames'
 
 import { ButtonProps } from 'types'
 
-import s from './Button.module.sass'
+import s from './Button.module.scss'
 
 const Button: FC<ButtonProps> = ({ children, onClick, icon, secondary, primary }) => {
   return (
